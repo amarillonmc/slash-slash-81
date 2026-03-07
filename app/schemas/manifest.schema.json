@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BattleManifest",
+  "type": "object",
+  "required": ["run_id", "created_at", "rulebooks", "rolesets", "resolved_files", "roles", "prompt_bundle"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "created_at": {"type": "string"},
+    "rulebooks": {"type": "array", "items": {"type": "string"}},
+    "rolesets": {"type": "array", "items": {"type": "string"}},
+    "roles": {"type": "array", "items": {"type": "string"}},
+    "resolved_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["category", "title", "source_path"],
+        "properties": {
+          "category": {"type": "string"},
+          "title": {"type": "string"},
+          "source_path": {"type": "string"}
+        }
+      }
+    },
+    "prompt_bundle": {
+      "type": "object",
+      "required": ["director_system", "validator_system", "qa_system"],
+      "properties": {
+        "director_system": {"type": "string"},
+        "validator_system": {"type": "string"},
+        "qa_system": {"type": "string"}
+      }
+    }
+  }
+}
