@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ValidationReport",
+  "type": "object",
+  "required": ["ok", "errors", "warnings", "checks"],
+  "properties": {
+    "ok": {"type": "boolean"},
+    "errors": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "checks": {
+      "type": "object",
+      "additionalProperties": {"type": "boolean"}
+    }
+  }
+}

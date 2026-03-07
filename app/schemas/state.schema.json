@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BattleState",
+  "type": "object",
+  "required": ["run_id", "current_round", "status", "alive_roles", "eliminated_roles", "round_history", "public_summary", "private_notes", "updated_at"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "current_round": {"type": "integer", "minimum": 0},
+    "status": {"type": "string"},
+    "alive_roles": {"type": "array", "items": {"type": "string"}},
+    "eliminated_roles": {"type": "array", "items": {"type": "string"}},
+    "round_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["round_no", "draft_file", "final_file", "validation_file", "summary"],
+        "properties": {
+          "round_no": {"type": "integer", "minimum": 1},
+          "draft_file": {"type": "string"},
+          "final_file": {"type": "string"},
+          "validation_file": {"type": "string"},
+          "summary": {"type": "string"}
+        }
+      }
+    },
+    "public_summary": {"type": "string"},
+    "private_notes": {"type": "string"},
+    "updated_at": {"type": "string"}
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "commandsDir": ".opencode/commands",
+  "toolsDir": ".opencode/tools",
+  "defaultShell": "bash",
+  "notes": "Phase-1 MVP for automated battle run workflow"
+}
