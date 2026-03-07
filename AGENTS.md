@@ -1,7 +1,16 @@
 # AGENTS.md
 
-This repository is a wrapper repo with one git submodule.
+Currently, This repository is a wrapper repo with one git submodule.
 Most code and docs live in `boom-boom-81/`.
+
+## Additional Information
+- 本项目的知识源在 boom-boom-81/kb/
+- 回答和生成前先查 boom-boom-81/kb/index/topics.jsonl
+- 规则问题只读 rulebooks
+- 角色问题只读 roles
+- 对局问题优先读 records-completed
+- 不允许全库全文扫描
+- 每次生成前必须先读取 runs/<run_id>/state.json
 
 ## Scope and layout
 - Root repo `slash-slash-81/` mainly tracks the submodule pointer.
