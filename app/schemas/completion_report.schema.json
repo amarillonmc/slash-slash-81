@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CompletionReport",
+  "type": "object",
+  "required": ["is_complete", "reason", "signals", "winner_like_entities", "summary"],
+  "properties": {
+    "is_complete": {"type": "boolean"},
+    "reason": {"type": "string"},
+    "signals": {"type": "array", "items": {"type": "string"}},
+    "winner_like_entities": {"type": "array", "items": {"type": "string"}},
+    "summary": {"type": "string"}
+  }
+}
