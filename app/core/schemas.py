@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 
 def utc_now_iso() -> str:
@@ -59,6 +59,7 @@ class State:
     public_summary: str
     private_notes: str
     updated_at: str
+    completion: Optional[Dict[str, Any]] = None
 
     def to_dict(self) -> Dict[str, Any]:
         data = asdict(self)

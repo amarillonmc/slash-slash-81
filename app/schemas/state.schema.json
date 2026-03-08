@@ -6,7 +6,7 @@
   "properties": {
     "run_id": {"type": "string"},
     "current_round": {"type": "integer", "minimum": 0},
-    "status": {"type": "string"},
+    "status": {"type": "string", "enum": ["initialized", "in_progress", "completed"]},
     "alive_roles": {"type": "array", "items": {"type": "string"}},
     "eliminated_roles": {"type": "array", "items": {"type": "string"}},
     "round_history": {
@@ -25,6 +25,17 @@
     },
     "public_summary": {"type": "string"},
     "private_notes": {"type": "string"},
-    "updated_at": {"type": "string"}
+    "updated_at": {"type": "string"},
+    "completion": {
+      "type": ["object", "null"],
+      "required": ["is_complete", "reason", "signals", "winner_like_entities", "summary"],
+      "properties": {
+        "is_complete": {"type": "boolean"},
+        "reason": {"type": "string"},
+        "signals": {"type": "array", "items": {"type": "string"}},
+        "winner_like_entities": {"type": "array", "items": {"type": "string"}},
+        "summary": {"type": "string"}
+      }
+    }
   }
 }

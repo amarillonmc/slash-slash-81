@@ -50,6 +50,7 @@ def main() -> None:
         public_summary="Run created.",
         private_notes="",
         updated_at=utc_now_iso(),
+        completion=None,
     )
     write_json(run_dir / "state.json", state.to_dict())
 
