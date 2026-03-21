@@ -101,7 +101,8 @@ def main() -> None:
         context_snippets=context_snippets,
         previous_finals=previous_finals,
     )
-    output.write_text(draft_text, encoding="utf-8", newline="\n")
+    with output.open("w", encoding="utf-8", newline="\n") as fp:
+        fp.write(draft_text)
 
     package_path = Path(args.package_output) if args.package_output else run_dir / "rounds" / f"{round_no}_generation.json"
     write_json(

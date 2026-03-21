@@ -50,7 +50,8 @@ def main() -> None:
     final_path = run_dir / "rounds" / f"{args.round_no}_final.md"
     completion_report = None
     if args.finalize and report.ok:
-        final_path.write_text(round_text, encoding="utf-8", newline="\n")
+        with final_path.open("w", encoding="utf-8", newline="\n") as fp:
+            fp.write(round_text)
 
         previous_finals = _load_previous_finals(run_dir, args.round_no)
         rulebooks = list(manifest_data.get("rulebooks", []))

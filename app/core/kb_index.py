@@ -39,7 +39,7 @@ def load_topics(index_path: Path = INDEX_PATH) -> List[TopicEntry]:
             if not raw:
                 continue
             obj = json.loads(raw)
-            path = str(obj.get("path") or obj.get("file") or "")
+            path = str(obj.get("path") or obj.get("file") or obj.get("file_path") or "")
             title = str(obj.get("title") or obj.get("topic") or "").strip()
             if not path or not title:
                 continue
