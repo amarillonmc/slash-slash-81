@@ -50,6 +50,12 @@ def main() -> None:
         public_summary="Run created.",
         private_notes="",
         updated_at=utc_now_iso(),
+        phase="opening",
+        state_facts=["current_round=0", "phase=opening"],
+        notable_events=["run_created"],
+        unresolved_threads=["battle has not started"],
+        uncertain_facts=[],
+        extraction={"method": "initialization", "source": "create_run"},
         completion=None,
     )
     write_json(run_dir / "state.json", state.to_dict())

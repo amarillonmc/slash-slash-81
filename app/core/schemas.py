@@ -59,6 +59,12 @@ class State:
     public_summary: str
     private_notes: str
     updated_at: str
+    phase: str = "opening"
+    state_facts: List[str] = field(default_factory=list)
+    notable_events: List[str] = field(default_factory=list)
+    unresolved_threads: List[str] = field(default_factory=list)
+    uncertain_facts: List[str] = field(default_factory=list)
+    extraction: Optional[Dict[str, Any]] = None
     completion: Optional[Dict[str, Any]] = None
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,7 +78,9 @@ class ValidationReport:
     ok: bool
     errors: List[str]
     warnings: List[str]
-    checks: Dict[str, bool]
+    checks: Dict[str, Dict[str, Any]]
+    sources_considered: List[str]
+    summary: str
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
