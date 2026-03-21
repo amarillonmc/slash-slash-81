@@ -2,14 +2,24 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ValidationReport",
   "type": "object",
-  "required": ["ok", "errors", "warnings", "checks"],
+  "required": ["ok", "errors", "warnings", "checks", "sources_considered", "summary"],
   "properties": {
     "ok": {"type": "boolean"},
     "errors": {"type": "array", "items": {"type": "string"}},
     "warnings": {"type": "array", "items": {"type": "string"}},
     "checks": {
       "type": "object",
-      "additionalProperties": {"type": "boolean"}
-    }
+      "additionalProperties": {
+        "type": "object",
+        "required": ["ok", "details", "severity"],
+        "properties": {
+          "ok": {"type": "boolean"},
+          "details": {"type": "string"},
+          "severity": {"type": "string"}
+        }
+      }
+    },
+    "sources_considered": {"type": "array", "items": {"type": "string"}},
+    "summary": {"type": "string"}
   }
 }
